@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let round = 1;
+        let computerWins = 0;
+        let playerWins = 0;
+
+        function randomNum(num) { // Random-number function
+            return Math.floor(Math.random() * num + 1)
+        }
+
+        function computerPlay() { // Computer-generated answer to Rock, Paper, Scissors.
+            let options = ["bug", "rock", "paper", "scissors"];
+            return options[randomNum(3)];
+        }
+        
+        function userPlay() { // Player's answer to rock-paper-scissors
+            let userSelection = prompt("Rock, paper, or scissors?")
+            return userSelection.toLowerCase();
+        }
+
+        function playRound(computerPlay, userPlay) { // A single-round. Declares winner of a single-round.
+            if (computerPlay == "rock") {
+                if (userPlay == "scissors") {
+                    computerWins++
+                    return "The computer won! Rock beats scissors."
+                } else if (userPlay == "paper") {
+                    playerWins++
+                    return "You won! Paper beats rock."
+                } else {
+                    return "It's a tie!"
+                }
+            } else if (computerPlay == "scissors") {
+                if (userPlay == "paper") {
+                    computerWins++
+                    return "The computer won! Scissors beats paper."
+                } else if (userPlay == "rock") {
+                    playerWins++
+                    return "You won! Rock beats scissors"
+                } else {
+                    return "It's a tie!"
+                }
+            } else {
+                if (userPlay == "rock") {
+                    computerWins++
+                    return "The computer won! Paper beats rock!"
+                } else if (userPlay == "scissors") {
+                    playerWins++
+                    return "You won! Scissors beats paper"
+                } else {
+                    return "It's a tie!"
+                }
+            }
+        }
+
+        function playGame() { // A best-of-five game which runs "playRound" five times.
+            while ( (playerWins < 3) && (computerWins < 3) ) {
+                console.log(playRound(computerPlay(), userPlay()));
+                if (playerWins == 3) {
+                    console.log("You won the game!")
+                } else if (computerWins == 3) {
+                        console.log("The computer won! You lost!")
+                } else {
+                }
+            }
+    }
+    </script>
+</body>
+</html>
