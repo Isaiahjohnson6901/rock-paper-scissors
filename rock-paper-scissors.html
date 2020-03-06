@@ -17,7 +17,14 @@
         
         function userPlay() { // Player's answer to rock-paper-scissors
             let userSelection = prompt("Rock, paper, or scissors?")
-            return userSelection.toLowerCase();
+            let userSelection2 = userSelection.toLowerCase();
+            let notCorrect = "Not Correct"
+            if (userSelection2 == "rock" || userSelection == "paper" || userSelection == "scissors") {
+                return userSelection2 
+            } else {
+                return notCorrect
+            }
+            
         }
 
         function playRound(computerPlay, userPlay) { // A single-round. Declares winner of a single-round.
@@ -28,8 +35,10 @@
                 } else if (userPlay == "paper") {
                     playerWins++
                     return "You won! Paper beats rock."
-                } else {
+                } else if (userPlay == "rock") {
                     return "It's a tie!"
+                } else {
+                    return "You entered an incorrect value"
                 }
             } else if (computerPlay == "scissors") {
                 if (userPlay == "paper") {
@@ -38,8 +47,10 @@
                 } else if (userPlay == "rock") {
                     playerWins++
                     return "You won! Rock beats scissors"
-                } else {
+                } else if (userPlay == "scissors") {
                     return "It's a tie!"
+                } else {
+                    return "You entered an incorrect value"
                 }
             } else {
                 if (userPlay == "rock") {
@@ -48,8 +59,10 @@
                 } else if (userPlay == "scissors") {
                     playerWins++
                     return "You won! Scissors beats paper"
-                } else {
+                } else if (userPlay == "paper") {
                     return "It's a tie!"
+                } else {
+                    return "You entered an incorrect value"
                 }
             }
         }
